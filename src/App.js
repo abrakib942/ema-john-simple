@@ -5,6 +5,8 @@ import Header from "./components/header/Header";
 import Inventory from "./components/inventory/Inventory";
 import Login from "./components/login/Login";
 import Order from "./components/order/Order";
+import RequiredAuth from "./components/requiredAuth/RequiredAuth";
+import Shipment from "./components/shipment/Shipment";
 import Shop from "./components/Shop/Shop";
 import SignUp from "./components/signUp/SignUp";
 
@@ -17,7 +19,22 @@ function App() {
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/order" element={<Order />}></Route>
         <Route path="/about" element={<About />}></Route>
-        <Route path="/inventory" element={<Inventory />}></Route>
+        <Route
+          path="/inventory"
+          element={
+            <RequiredAuth>
+              <Inventory />
+            </RequiredAuth>
+          }
+        ></Route>
+        <Route
+          path="/shipment"
+          element={
+            <RequiredAuth>
+              <Shipment />
+            </RequiredAuth>
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
